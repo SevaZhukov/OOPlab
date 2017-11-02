@@ -18,6 +18,7 @@ int main()
     cout << endl;
     StudentFPMI stpmi("www", 2, 4, 5);
     stpmi.Print();*/
+
     Student student("student1", 18, 4.5);
     StudentAVTF studentAVTF("student2", 19, 3.5, 24);
     StudentFPMI studentFPMI("student3", 20, 3.0, 12);

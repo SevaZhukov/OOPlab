@@ -38,7 +38,7 @@ void ListS::add(Student d) {
     {
         pv->prev = lend;
         pv->prev->next=pv;
-        pv->next = lstart;
+        pv->next = NULL;
         lend = pv;
     }
 }
@@ -64,13 +64,14 @@ void ListS::print() {
     }
     else
     {
-        pv->field.Print();
-        pv=pv->next;
-        while (pv != lstart)
+        /*pv->field.Print();
+        pv=pv->next;*/
+        while (pv != lend)
         {
             pv->field.Print();
             pv = pv->next;
         }
+        pv->field.Print();
     }
 }
 
