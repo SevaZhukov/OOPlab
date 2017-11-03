@@ -92,7 +92,8 @@ void ListS::delbynumber(int number) {
             lstart = pv->next;
             pv->prev->next = pv->next;
             pv->next->prev = pv->prev;
-            lend->next = lstart;
+            lstart->prev = NULL;
+            lend->next = NULL;
             delete pv;
         }
         else
@@ -139,7 +140,7 @@ void ListS::findbyname(const char *name) {
     }
     pv=pv->next;
 
-    while (pv != lstart)
+    while (pv != NULL)
     {
         if (!strcmp(name,pv->field.getName() ))
         {

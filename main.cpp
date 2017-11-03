@@ -11,11 +11,16 @@ int main()
     /*StudentAVTF stpi("qqq", 1, 3, 1);
     StudentAVTF st(stpi);
     Student *p;
+
+    Student student("aaa", 1, 2);
+    student.Print();
+    stpi.Print();
     p = new StudentAVTF(st);
     p->Print();
+    p = &student;
+    p->Print();
     //st.Print();
-
-    cout << endl;
+   *//* cout << endl;
     StudentFPMI stpmi("www", 2, 4, 5);
     stpmi.Print();*/
 

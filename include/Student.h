@@ -11,7 +11,7 @@ public:
     Student();
     Student(const Student &student);
     ~Student();
-    virtual void Print();
+    void Print();
     void EditAll();
     Student operator + (Student student);
     Student operator = (Student student);
