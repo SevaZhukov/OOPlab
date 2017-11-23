@@ -57,7 +57,8 @@ void ListS::clear() {
 
 void ListS::print() {
     elem *pv;
-    pv = lstart;
+    //pv = lstart;
+    pv= lend;
     if (lend == 0)
     {
         cout<<"List is empty"<<endl;
@@ -66,11 +67,15 @@ void ListS::print() {
     {
         /*pv->field.Print();
         pv=pv->next;*/
-        while (pv != lend)
+        while(pv!= lstart){
+            pv->field.Print();
+            pv = pv->prev;
+        }
+        /*while (pv != lend)
         {
             pv->field.Print();
             pv = pv->next;
-        }
+        }*/
         pv->field.Print();
     }
 }

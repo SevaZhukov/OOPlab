@@ -32,7 +32,6 @@ public:
     void delbynumber(int number = 0);
     void addbynumber(int number, Student d);
     void findbyname(const char name[]);
-    void findbydescription(const char name[]);
 };
 
 

@@ -8,47 +8,14 @@ using namespace std;
 
 int main()
 {
-    /*StudentAVTF stpi("qqq", 1, 3, 1);
-    StudentAVTF st(stpi);
-    Student *p;
-
-    Student student("aaa", 1, 2);
-    student.Print();
-    stpi.Print();
-    p = new StudentAVTF(st);
-    p->Print();
-    p = &student;
-    p->Print();
-    //st.Print();
-   *//* cout << endl;
-    StudentFPMI stpmi("www", 2, 4, 5);
-    stpmi.Print();*/
-
-    Student student("student1", 18, 4.5);
-    StudentAVTF studentAVTF("student2", 19, 3.5, 24);
-    StudentFPMI studentFPMI("student3", 20, 3.0, 12);
-    //Объявление списка
-    ListS listS;
-    //Добавляем элементы
-    listS.add(student);
-    listS.add(studentAVTF);
-    listS.add(studentFPMI);
-    listS.add(studentAVTF);
-    //Вывод
-    listS.print();
+    Student student("student1", -18, 0);
     cout << endl;
-    //Удаление по номеру
-    listS.delbynumber(0);
-    listS.print();
+    ifstream input("out.txt");
+    input >> student;
+    input.close();
     cout << endl;
-    //Вставка по номеру
-    listS.addbynumber(1, student);
-    listS.print();
-    cout << endl;
-    listS.findbyname("student2");
-    cout << endl;
-    listS.clear();
-    listS.clear();
-    listS.print();
+    ifstream output_bin("out.bin", std::ios_base::binary);
+    student.read(output_bin);
+    output_bin.close();
     return 0;
 }

@@ -5,10 +5,30 @@
 using namespace std;
 Student::Student(char* v, int Age, float MidPoint)
 {
-    name = new char[strlen(v)+1];
-    strcpy(name, v);
-    age=Age;
-    midPoint=MidPoint;
+    try {
+        name = new char[strlen(v)+1];
+        strcpy(name, v);
+        if( Age < 0) {
+            throw 0;
+        } else {
+            age=Age;
+        }
+        if (MidPoint <1) {
+            throw 1;
+        } else {
+            midPoint=MidPoint;
+        }
+    } catch (int i) {
+        switch (i) {
+            case 0 :
+                cout << "Invalid value of Age";
+                break;
+            case 1 :
+                cout << "Invalid value of MidPoint";
+                break;
+        }
+    }
+
 }
 Student::Student()
 {
@@ -104,8 +124,20 @@ ostream& operator << (ostream& os, Student &student)
 }
 istream& operator >> (istream& is, Student &student)
 {
-    is >>student.name>>student.age>>student.midPoint;
-    return is;
+    try {
+        if (!is) {
+            throw 0;
+        }
+        else {
+            is >>student.name>>student.age>>student.midPoint;
+            return is;
+        }
+    } catch (int i) {
+        if(i==0){
+            cout << "File is empty!";
+        }
+    }
+
 }
 void Student::write(ofstream &os)
 {
@@ -116,22 +148,29 @@ void Student::write(ofstream &os)
 
 void Student::read(ifstream &is)
 {
-    char ch;
-    int i=0;
-    streampos s = is.tellg();//текущая поззиция get в потоке
-    while ((ch = is.get()) !='\0')
-    {
-        i++;
+    try {
+        if(!is) throw 0;
+        char ch;
+        int i=0;
+        streampos s = is.tellg();//текущая поззиция get в потоке
+        while ((ch = is.get()) !='\0')
+        {
+            i++;
+        }
+        is.seekg(s);//перемещаем указатель ввода
+        if (name != '\0')
+        {
+            delete[] name;
+        }
+        name = new char[i + 1];
+        is.read(name, i + 1);
+        is.read(reinterpret_cast<char *>(&age), sizeof(age));
+        is.read(reinterpret_cast<char *>(&midPoint), sizeof(midPoint));
+    } catch (int i) {
+        if(i==0) {
+            cout << "File is empty!";
+        }
     }
-    is.seekg(s);//перемещаем указатель ввода
-    if (name != '\0')
-    {
-        delete[] name;
-    }
-    name = new char[i + 1];
-    is.read(name, i + 1);
-    is.read(reinterpret_cast<char *>(&age), sizeof(age));
-    is.read(reinterpret_cast<char *>(&midPoint), sizeof(midPoint));
 }
 
 Student::~Student()
