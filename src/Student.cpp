@@ -9,12 +9,12 @@ Student::Student(char* v, int Age, float MidPoint)
         name = new char[strlen(v)+1];
         strcpy(name, v);
         if( Age < 0) {
-            throw 0;
+            //throw 0;
         } else {
             age=Age;
         }
         if (MidPoint <1) {
-            throw 1;
+            //throw 1;
         } else {
             midPoint=MidPoint;
         }

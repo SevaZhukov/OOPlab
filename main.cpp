@@ -129,11 +129,10 @@ int main()
     timer_begin = static_cast<unsigned int>(clock());
     for(int i=0; i<500000; i++) {
         float f = rand()%100;
-        Student student(randomString(), rand()%100, f);
+        Student student(randomString(), rand()%10, f);
         qs.push(student);
     }
     cout << "Write in queue: " << clock()-timer_begin << " ms"<<endl;
-    /*
 
     //поиск в queue
     int age = 45;
@@ -172,6 +171,6 @@ int main()
     //удаление set
     timer_begin = static_cast<unsigned int>(clock());
     sets.clear();
-    cout << "Clear set: " << clock()-timer_begin << " ms"<<endl;*/
+    cout << "Clear set: " << clock()-timer_begin << " ms"<<endl;
     return 0;
 }
