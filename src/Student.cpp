@@ -5,7 +5,7 @@
 using namespace std;
 Student::Student(char* v, int Age, float MidPoint)
 {
-    try {
+    //try {
         name = new char[strlen(v)+1];
         strcpy(name, v);
         if( Age < 0) {
@@ -18,7 +18,7 @@ Student::Student(char* v, int Age, float MidPoint)
         } else {
             midPoint=MidPoint;
         }
-    } catch (int i) {
+    /*} catch (int i) {
         switch (i) {
             case 0 :
                 cout << "Invalid value of Age";
@@ -27,7 +27,7 @@ Student::Student(char* v, int Age, float MidPoint)
                 cout << "Invalid value of MidPoint";
                 break;
         }
-    }
+    }*/
 
 }
 Student::Student()
